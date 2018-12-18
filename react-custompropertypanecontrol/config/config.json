@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "react-custompropertypanecontrol-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/reactCustompropertypanecontrol/ReactCustompropertypanecontrolWebPart.js",
+          "manifest": "./src/webparts/reactCustompropertypanecontrol/ReactCustompropertypanecontrolWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ReactCustompropertypanecontrolWebPartStrings": "lib/webparts/reactCustompropertypanecontrol/loc/{locale}.js"
+  }
+}

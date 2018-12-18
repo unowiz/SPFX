@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "86b3b96a-e41d-46da-86b0-8561cc10f4d6",
+  "alias": "ReactCustompropertypanecontrolWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "react-custompropertypanecontrol" },
+    "description": { "default": "react-custompropertypanecontrol description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "listName": "",
+      "item": ""
+    }
+  }]
+}

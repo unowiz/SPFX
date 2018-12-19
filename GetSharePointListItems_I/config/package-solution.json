@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "GetSharePointListItems",
+    "id": "dd764ec5-9ddf-41f1-bc2a-611e7ef80e66",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/GetSharePointListItems.sppkg"
+  }
+}

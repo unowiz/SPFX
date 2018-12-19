@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "9f7a90a8-8e19-4a73-9096-1bc98cde38dc",
+  "alias": "ReactAggregatedCalendarWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other", "sv-se": "Annat", "fr-fr": "Autre" },
+    "title": { "default": "Calendar Overlay", "sv-se": "Kalenderöverlägg", "fr-fr": "Multi-calendrier" },
+    "description": {
+      "default": "A calendar that shows events from several calendars",
+      "sv-se": "En kalender som visar händelser från flera kalendrar",
+      "fr-fr": "Un calendrier qui affiche les événements de plusieurs calendriers"},
+    "officeFabricIconFontName": "SearchCalendar",
+    "properties": {
+      "header": "My Calendar",
+      "showWeekends": "Off",
+      "showLegend": true,
+      "dateFormat": "MMMM Do YYYY, h:mm a",
+      "defaultView": "month",
+      "availableViews": [
+        "month",
+        "agendaWeek",
+        "agendaDay",
+        "listMonth"
+      ]
+    }
+  }]
+}

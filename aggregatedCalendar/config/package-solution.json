@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "react-aggregated-calendar-client-side-solution",
+    "id": "10312998-f1ed-4824-a7d2-636a6031886a",
+    "version": "4.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/react-aggregated-calendar.sppkg"
+  }
+}

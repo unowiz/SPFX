@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b488efce-0d9b-4590-baee-c9a0b39d1d4b",
+  "alias": "GraphEventsWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Test" },
+    "title": { "default": "Calendar Events" },
+    "description": { "default": "Get personal events from calendar" },
+    "officeFabricIconFontName": "Calendar",
+    "properties": {
+      "description": "Calendar Events"
+    }
+  }]
+}

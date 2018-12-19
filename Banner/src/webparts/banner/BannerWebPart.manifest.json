@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "4287b3aa-5692-4527-831e-a63f88b3de20",
+  "alias": "Banner",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Banner" },
+    "description": { "default": "Renders a banner style presentation with text and image" },
+    "officeFabricIconFontName": "Photo2",
+    "properties": {
+      "bannerText": "",
+      "bannerImage": "",
+      "bannerLink": "",
+      "bannerHeight": 280,
+      "useParallax": true
+    }
+  }]
+}

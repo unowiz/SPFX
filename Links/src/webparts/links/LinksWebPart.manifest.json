@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "3544d800-5846-470c-aaf3-2beb8fc6bde8",
+  "alias": "Links",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other", "es-es": "Otros" },
+    "title": { "default": "Links", "es-es": "Links" },
+    "description": { "default": "Links description", "es-es": "Descripcion de la app" },
+    "officeFabricIconFontName": "List",
+    "properties": {
+      "title": "Useful Links"
+    }
+  }]
+}

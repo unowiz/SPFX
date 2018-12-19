@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "376b4350-766c-4fe0-b2b9-2ff775d03284",
+  "alias": "EventsGraph",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Events" },
+    "description": { "default": "Events description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Events"
+    }
+  }]
+}

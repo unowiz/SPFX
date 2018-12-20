@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "06611e88-4814-40a9-b2c7-ee1ca6503aac",
-  "alias": "ListFormWebPart",
+  "id": "b2e1077d-dc82-4a7f-b1fc-816b7aee595c",
+  "alias": "PnpReadListWebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -16,11 +16,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "ListForm" },
-    "description": { "default": "ListForm description" },
+    "title": { "default": "Pnp Read List" },
+    "description": { "default": "Pnp Read List description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "ListForm"
+      "description": "Pnp Read List"
     }
   }]
 }

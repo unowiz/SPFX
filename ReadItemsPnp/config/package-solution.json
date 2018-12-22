@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "read-items-pnp-client-side-solution",
+    "id": "afbc442c-affd-4ceb-a4c0-83b34f426127",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/read-items-pnp.sppkg"
+  }
+}

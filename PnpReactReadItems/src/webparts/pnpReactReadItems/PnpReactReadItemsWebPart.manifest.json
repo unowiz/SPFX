@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "23cccf29-b3a6-47f9-bf1e-871b89e3f420",
+  "alias": "PnpReactReadItemsWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", 
+    "group": { "default": "Other" },
+    "title": { "default": "Pnp React Read Items" },
+    "description": { "default": "Pnp React Read Items description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Pnp React Read Items"
+    }
+  }]
+}

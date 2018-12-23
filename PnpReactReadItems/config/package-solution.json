@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "pnp-react-read-items-client-side-solution",
+    "id": "18584eb5-e2a1-4bc9-80e6-c774da8d671e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/pnp-react-read-items.sppkg"
+  }
+}

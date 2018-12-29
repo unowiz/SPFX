@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "a49a650c-2277-4de9-97e8-6575e194c0a2",
+  "alias": "Tiles",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", 
+    "group": { "default": "Other" },
+    "title": { "default": "Tiles" },
+    "description": { "default": "Tiles description" },
+    "officeFabricIconFontName": "Tiles",
+    "properties": {
+      "title": "Useful tools"
+    }
+  }]
+}

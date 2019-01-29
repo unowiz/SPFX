@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://hernancompany.sharepoint.com/sites/Finance/SitePages/Home.aspx",
+      "customActions": {
+        "d4ba3a92-2145-4703-ad5c-edeef3f7f362": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "footer3": {
+      "pageUrl": "https://hernancompany.sharepoint.com/sites/Finance/SitePages/Home.aspx",
+      "customActions": {
+        "d4ba3a92-2145-4703-ad5c-edeef3f7f362": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}

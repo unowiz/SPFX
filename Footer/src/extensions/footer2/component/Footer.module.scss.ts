@@ -1,8 +1,8 @@
 /* tslint:disable */
 require("./Footer.module.css");
 const styles = {
-  footer: 'footer_ca0c3dc8',
-  main: 'main_ca0c3dc8',
+  footer: 'footer_71aadaa8',
+  main: 'main_71aadaa8',
 };
 
 export default styles;

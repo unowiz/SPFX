@@ -6,7 +6,7 @@
     "default": {
       "pageUrl": "https://hernancompany.sharepoint.com/sites/Finance/SitePages/Home.aspx",
       "customActions": {
-        "160b9835-a267-40d7-9ed9-dfa25c895710": {
+        "24437d43-cc54-43e2-a4b1-1ec641dda8e5": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "testMessage": "Test message"
@@ -14,10 +14,10 @@
         }
       }
     },
-    "footer": {
+    "footer2": {
       "pageUrl": "https://hernancompany.sharepoint.com/sites/Finance/SitePages/Home.aspx",
       "customActions": {
-        "160b9835-a267-40d7-9ed9-dfa25c895710": {
+        "24437d43-cc54-43e2-a4b1-1ec641dda8e5": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "testMessage": "Test message"

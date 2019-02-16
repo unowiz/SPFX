@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b67543f3-fea7-43ac-be1c-a068741d0d68",
+  "alias": "TagsWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+  "supportsFullBleed": true,
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", 
+    "group": { "default": "Other" },
+    "title": { "default": "Tags" },
+    "description": { "default": "Tags description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Tags"
+    }
+  }]
+}

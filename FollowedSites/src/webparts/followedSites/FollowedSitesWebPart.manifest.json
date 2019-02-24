@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "79b60292-249c-43e5-b0dc-a61a52aa3997",
+  "alias": "FollowedSites",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "FollowedSites" },
+    "description": { "default": "FollowedSites description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "FollowedSites"
+    }
+  }]
+}

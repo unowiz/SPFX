@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Site Members",
+    "id": "5326515a-4924-4cc3-8d21-423d58e8c2f8",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.ReadBasic.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Directory.AccessAsUser.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Directory.Read.All"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/site-members.sppkg"
+  }
+}

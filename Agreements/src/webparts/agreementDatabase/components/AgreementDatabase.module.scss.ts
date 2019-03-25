@@ -1,16 +1,16 @@
 /* tslint:disable */
 require("./AgreementDatabase.module.css");
 const styles = {
-  agreementDatabase: 'agreementDatabase_fcd35631',
-  container: 'container_fcd35631',
-  row: 'row_fcd35631',
-  column: 'column_fcd35631',
-  'ms-Grid': 'ms-Grid_fcd35631',
-  title: 'title_fcd35631',
-  subTitle: 'subTitle_fcd35631',
-  description: 'description_fcd35631',
-  button: 'button_fcd35631',
-  label: 'label_fcd35631',
+  agreementDatabase: 'agreementDatabase_c85fabad',
+  container: 'container_c85fabad',
+  row: 'row_c85fabad',
+  column: 'column_c85fabad',
+  'ms-Grid': 'ms-Grid_c85fabad',
+  title: 'title_c85fabad',
+  subTitle: 'subTitle_c85fabad',
+  description: 'description_c85fabad',
+  button: 'button_c85fabad',
+  label: 'label_c85fabad',
 };
 
 export default styles;

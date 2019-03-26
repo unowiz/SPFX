@@ -3,6 +3,7 @@ import { WebPartContext } from "@microsoft/sp-webpart-base";
 import { IAgreementDataProvider } from "../interface/IAgreementDataProvider";
 import { sp } from '@pnp/sp';
 import Agreement from "../container/Agreement";
+import Views from "../container/Views";
 
 export default class AgreementDataProvider implements IAgreementDataProvider {
     private absoluteWebUrl: string;
@@ -17,21 +18,40 @@ export default class AgreementDataProvider implements IAgreementDataProvider {
         });
     }
 
+    public async getViews(): Promise<Views[]> {
+        
+        let View: Views[] = [];
+        const views = await sp.web.lists.getById('823e0102-5928-4f8a-bcda-f1794bd9026b').views
+        .get();
+
+        views.forEach(view => {
+            View.push({
+                Id: view.Id,
+                Title: view.Title
+            });
+        });
+
+        return new Promise<Views[]>(async(resolve) => {
+            resolve(View);
+        });
+    }
+
     public async getAgreements(): Promise<Agreement[]> {
         let select = '*';
-        let expand = 'File';
-        let filter = '';
         let Agreements: Agreement[] = [];
     
         const items = await sp.web.lists.getById('823e0102-5928-4f8a-bcda-f1794bd9026b').items
           .select(select)
           .get();
 
+        console.log(items);
         items.forEach(item => {
             Agreements.push({
+                Title: item.Title,
                 AgreementName: item.Title,
                 CustomerAgreementNr: item.CustomerAgreementNr,
                 AgreementType: item.AgreementType,
+                SalesManager: item.SalesManagerId,
                 ContactPerson: item.ContactPerson,
                 DeliveryType: item.DeliveryType,
                 AgreementStartDate: item.AgreementStartDate,
@@ -42,9 +62,10 @@ export default class AgreementDataProvider implements IAgreementDataProvider {
 
             });
         });
-
+        
         return new Promise<Agreement[]>(async(resolve) => {
             resolve(Agreements);
         });
+
       }
 }

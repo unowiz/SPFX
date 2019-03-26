@@ -1,16 +1,16 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
-import { BaseClientSideWebPart, WebPartContext } from '@microsoft/sp-webpart-base';
 import {
+  BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
+  PropertyPaneTextField,
+  WebPartContext
+} from '@microsoft/sp-webpart-base';
 
 import * as strings from 'AgreementDatabaseWebPartStrings';
 import AgreementDatabase from './components/AgreementDatabase';
 import { IAgreementDatabaseProps } from './components/IAgreementDatabaseProps';
-
 
 export interface IAgreementDatabaseWebPartProps {
   description: string;
@@ -18,6 +18,7 @@ export interface IAgreementDatabaseWebPartProps {
 }
 
 export default class AgreementDatabaseWebPart extends BaseClientSideWebPart<IAgreementDatabaseWebPartProps> {
+
   public render(): void {
     const element: React.ReactElement<IAgreementDatabaseProps > = React.createElement(
       AgreementDatabase,

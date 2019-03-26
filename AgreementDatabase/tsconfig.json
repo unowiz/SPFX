@@ -1,5 +1,4 @@
 {
-  "extends": "./node_modules/@microsoft/rush-stack-compiler-2.7/includes/tsconfig-web.json",
   "compilerOptions": {
     "target": "es5",
     "forceConsistentCasingInFileNames": true,
@@ -11,9 +10,6 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "outDir": "lib",
-    "inlineSources": false,
-    "strictNullChecks": false,
-    "noUnusedLocals": false,
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@microsoft"

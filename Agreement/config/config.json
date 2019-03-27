@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "agrement-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/agrement/AgrementWebPart.js",
+          "manifest": "./src/webparts/agrement/AgrementWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AgrementWebPartStrings": "lib/webparts/agrement/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

@@ -1,0 +1,122 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.main-box {
+  height:180px;
+  background:#50AA00;
+  line-height:180px;
+  margin:0 8px 8px;
+
+  .link {
+    text-align:center;
+    color:#FFF;
+    font-size:42px;
+    font-weight:100;
+  }
+}
+
+.separator {
+  clear:both;
+  margin-top:20px;
+  padding:20px 8px;
+
+  hr {
+    border:1px solid #CCC;
+  }
+}
+.adw-link-list-container {
+  h2 {
+    margin: 40px 0 10px;
+  }
+}
+.adw-link-box-container {
+  float:left;
+  // width:25%;
+  box-sizing:border-box;
+  padding:8px;
+
+  .link-box {
+
+    a {
+      text-decoration:none;
+      height:157px;
+      display: block;
+      background:#EEE;
+      padding-top:30px;
+      box-sizing:border-box;
+    }
+
+    .link-box-header-container {
+      text-align:center;
+      color:#50AA00;
+
+      .link-box-header-title {
+        display:block;
+        font-weight:100;
+        font-size:15px;
+        color:#363636;
+      }
+
+      .link-box-header-text {
+        font-size:21px;
+        font-weight:100;
+      }
+    }
+  }
+}
+.adw-separator {
+  clear: both;
+  border-style: solid;
+}
+.adw-link-list-sorted {
+  margin: 0;
+  padding: 10px 0 0;
+  list-style: none;
+  li {
+    padding: 0 0 8px;
+  }
+}
+.categories {
+  padding: 0 8px;
+  position: relative;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    padding-top: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:before {
+      content: "\2022";
+      padding-right: 7px;
+    }
+  }
+
+  .category {
+    float:left;
+    width:25%;
+
+    .category-header {
+      font-weight:100;
+      font-size:21px;
+      margin-bottom:16px;
+    }
+
+    .category-list {
+      margin:0;
+      padding:0;
+      max-height: 180px;
+      overflow: hidden;
+      list-style:none;
+
+      .category-link {
+        padding:0 0 8px;
+      }
+    }
+  }
+}
+h2 {
+  font-weight:100;
+  font-size:21px;
+}

@@ -44,7 +44,7 @@ export default class ContentDataProvider {
         });
 
         
-       /*  console.log(items); */
+        console.log(items);
         return new Promise<IAgreement[]>(async (resolve) => {
             resolve(Agreements);
         });

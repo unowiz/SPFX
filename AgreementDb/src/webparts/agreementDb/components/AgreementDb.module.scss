@@ -1,0 +1,63 @@
+@import "~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss";
+.main-box {
+  height: 180px;
+  background: #50aa00;
+  line-height: 180px;
+  margin: 0 8px 8px;
+
+  .link {
+    text-align: center;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 100;
+  }
+}
+
+.separator {
+  clear: both;
+  margin-top: 20px;
+  padding: 20px 8px;
+
+  hr {
+    border: 1px solid #ccc;
+  }
+}
+
+.adw-separator {
+  clear: both;
+  border-style: solid;
+}
+
+.adw-link-box-container {
+  float: left;
+  box-sizing: border-box;
+  padding: 8px;
+
+  .link-box {
+    a {
+      text-decoration: none;
+      height: 157px;
+      display: block;
+      background: #eee;
+      padding-top: 30px;
+      box-sizing: border-box;
+    }
+
+    .link-box-header-container {
+      text-align: center;
+      color: #50aa00;
+
+      .link-box-header-title {
+        display: block;
+        font-weight: 100;
+        font-size: 15px;
+        color: #363636;
+      }
+
+      .link-box-header-text {
+        font-size: 21px;
+        font-weight: 100;
+      }
+    }
+  }
+}

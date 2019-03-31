@@ -7,14 +7,18 @@ import {
   PropertyPaneTextField,
   PropertyPaneDropdown
 } from '@microsoft/sp-webpart-base';
-import { setup as pnpSetup } from "@pnp/common";
-import * as strings from 'AgreementDbWebPartStrings';
-import AgreementDb from './components/AgreementDb';
-import { IAgreementDbProps } from './components/IAgreementDbProps';
-import ContentDataProvider from '../../dataprovider/ContentDataProvider';
 
-export interface IAgreementDbWebPartProps {
+import * as strings from 'AgreementDatabaseWebPartStrings';
+import AgreementDatabase from './components/AgreementDatabase';
+import { IAgreementDatabaseProps } from './components/IAgreementDatabaseProps';
+import { setup as pnpSetup } from "@pnp/common";
+import ContentDataProvider from "../../dataprovider/ContentDataProvider";
+
+export interface IAgreementDatabaseWebPartProps {
+  description: string;
+  viewName: string;
   headertext: string;
+  nrofboxes: string;
   linktitle1: string;
   linktext1: string;
   linkurl1: string;
@@ -33,28 +37,25 @@ export interface IAgreementDbWebPartProps {
   linktitle6: string;
   linktext6: string;
   linkurl6: string;
-  nrofboxes: string;
 }
 
-export default class AgreementDbWebPart extends BaseClientSideWebPart<IAgreementDbWebPartProps> {
+export default class AgreementDatabaseWebPart extends BaseClientSideWebPart<IAgreementDatabaseWebPartProps> {
   public onInit(): Promise<void> {
-
     return super.onInit().then(_ => {
-
-      pnpSetup({
+    pnpSetup({
         spfxContext: this.context
       });
-
     });
   }
   public render(): void {
     const contentProvider: ContentDataProvider = new ContentDataProvider();
-    const element: React.ReactElement<IAgreementDbProps> = React.createElement(
-      AgreementDb,
+    const element: React.ReactElement<IAgreementDatabaseProps > = React.createElement(
+      AgreementDatabase,
       {
+        description: this.properties.description,
         provider: contentProvider,
-        nrofboxes: this.properties.nrofboxes,
         headertext: this.properties.headertext,
+        nrofboxes: this.properties.nrofboxes,
         linktitle1: this.properties.linktitle1,
         linktext1: this.properties.linktext1,
         linkurl1: this.properties.linkurl1,
@@ -72,7 +73,7 @@ export default class AgreementDbWebPart extends BaseClientSideWebPart<IAgreement
         linkurl5: this.properties.linkurl5,
         linktitle6: this.properties.linktitle6,
         linktext6: this.properties.linktext6,
-        linkurl6: this.properties.linkurl6,
+        linkurl6: this.properties.linkurl6
       }
     );
 
@@ -105,11 +106,11 @@ export default class AgreementDbWebPart extends BaseClientSideWebPart<IAgreement
                 PropertyPaneDropdown('nrofboxes', {
                   label: "Number of navigation boxes",
                   options: [
-                    { text: "1", key: "1" },
-                    { text: "2", key: "2" },
-                    { text: "3", key: "3" },
-                    { text: "4", key: "4" },
-                    { text: "6", key: "6" },
+                    {text: "1", key: "1"},
+                    {text: "2", key: "2"},
+                    {text: "3", key: "3"},
+                    {text: "4", key: "4"},
+                    {text: "6", key: "6"},
                   ]
                 })
               ]

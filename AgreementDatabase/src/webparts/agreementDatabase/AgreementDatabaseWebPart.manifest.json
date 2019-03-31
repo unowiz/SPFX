@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "28212a9a-754a-4a92-b8fa-ec52df40cc8a",
-  "alias": "AgreementDb",
+  "id": "1cf66e40-00a8-47f1-833a-d9ecdac6f4ec",
+  "alias": "AgreementDatabaseWebPart",
   "componentType": "WebPart",
 
   "version": "*",
@@ -12,11 +12,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Other" },
-    "title": { "default": "AgreementDb" },
-    "description": { "default": "AgreementDb description" },
-    "officeFabricIconFontName": "BuildQueue",
+    "title": { "default": "AgreementDatabase" },
+    "description": { "default": "AgreementDatabase description" },
+    "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "AgreementDb"
+      "description": "AgreementDatabase"
     }
   }]
 }

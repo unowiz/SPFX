@@ -1,94 +1,45 @@
 import * as React from 'react';
-import styles from './AgreementDb.module.scss';
-import { IAgreementDbProps } from './IAgreementDbProps';
+import styles from './AgreementDatabase.module.scss';
+import { IAgreementDatabaseProps } from './IAgreementDatabaseProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import { IAgreement } from '../../../dataprovider/ContentDataProvider';
-
+import { IViews, IList } from "../../../dataprovider/ContentDataProvider";
 import { DetailsList, IGroup, DetailsListLayoutMode, Selection, SelectionMode, IColumn } from 'office-ui-fabric-react/lib/DetailsList';
-import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 import * as moment from 'moment';
 
-export interface IAgrementState {
-  originalitems: IAgreement[];
+export interface IViewState {
+  viewItems: IViews[];
+  listItems: IList[];
 }
 
-const classNames = mergeStyleSets({
-  fileIconHeaderIcon: {
-    padding: 0,
-    fontSize: '16px'
-  },
-  fileIconCell: {
-    textAlign: 'center',
-    selectors: {
-      '&:before': {
-        content: '.',
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        height: '100%',
-        width: '0px',
-        visibility: 'hidden'
-      }
-    }
-  },
-  fileIconImg: {
-    verticalAlign: 'middle',
-    maxHeight: '16px',
-    maxWidth: '16px'
-  },
-});
-
-export default class AgreementDb extends React.Component<IAgreementDbProps, IAgrementState> {
-  constructor(props: IAgreementDbProps) {
+export default class AgreementDatabase extends React.Component<IAgreementDatabaseProps, IViewState> {
+  constructor(props: IAgreementDatabaseProps) {
     super(props);
 
     this.state = {
-      originalitems: []
-    }
+      viewItems: [],
+      listItems: [],
+    };
   }
 
   public componentDidMount(): void {
-    this.props.provider.getContent().then((items: IAgreement[]) => {
+    this.props.provider.getView().then((items: IViews[]) => {
       this.setState({
-        originalitems: items
+        viewItems: items
+      });
+    });
+
+    this.props.provider.getContent().then((listItems: IList[]) => {
+      this.setState({
+        listItems: listItems
       });
     });
   }
 
-  private generateBoxes(nrofboxes: string): JSX.Element {
-    const boxes: JSX.Element[] = [];
-    const size: number = 12 / Number(nrofboxes);
-    const clsName: string = "ms-Grid-col ms-lg" + size + " ms-xl" + size;
-
-    for (var i = 1; i <= Number(nrofboxes); i++) {
-      boxes.push(
-        <div className={"ms-Grid-col ms-lg" + size + " ms-xl" + size + " " + styles["adw-link-box-container"]}>
-          <div className={styles["link-box"]}>
-            <a href={this.props["linkurl" + i]}>
-              <h4 className={styles["link-box-header-container"]}>
-                <small className={styles["link-box-header-title"]}>{this.props["linktitle" + i]}</small>
-                <span className={styles["link-box-header-text"]}>{this.props["linktext" + i]}</span>
-              </h4>
-            </a>
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <React.Fragment>
-        {boxes}
-      </React.Fragment>
-    );
-  }
-
-  public render(): React.ReactElement<IAgreementDbProps> {
-    
+  public render(): React.ReactElement<IAgreementDatabaseProps> {
     const columns: IColumn[] = [
       {
         key: 'column1',
         name: 'File Type',
-        className: classNames.fileIconCell,
-        iconClassName: classNames.fileIconHeaderIcon,
         ariaLabel: 'Column operations for File type, Press to sort on File type',
         iconName: 'Page',
         isIconOnly: true,
@@ -216,7 +167,7 @@ export default class AgreementDb extends React.Component<IAgreementDbProps, IAgr
         sortDescendingAriaLabel: 'Sorted Z to A',
         data: 'number',
         isPadded: true,
-        onRender: (item: IAgreement) => {
+        onRender: (item: IList) => {
           let agreementStartDate = moment(item.AgreementStartDate).format('YYYY-MM-DD');
           return (<span>{agreementStartDate}</span>);
         }
@@ -235,7 +186,7 @@ export default class AgreementDb extends React.Component<IAgreementDbProps, IAgr
         sortDescendingAriaLabel: 'Sorted Z to A',
         data: 'number',
         isPadded: true,
-        onRender: (item: IAgreement) => {
+        onRender: (item: IList) => {
           let agreementEndDate = moment(item.AgreementEndDate).format('YYYY-MM-DD');
           return (<span>{agreementEndDate}</span>);
         }
@@ -254,7 +205,7 @@ export default class AgreementDb extends React.Component<IAgreementDbProps, IAgr
         sortDescendingAriaLabel: 'Sorted Z to A',
         data: 'string',
         isPadded: true,
-        onRender: (item: IAgreement) => {
+        onRender: (item: IList) => {
           const agreementEnded = item.AgreementEnded;
           if (agreementEnded == true) {
             return (<span>Ja</span>);
@@ -277,7 +228,7 @@ export default class AgreementDb extends React.Component<IAgreementDbProps, IAgr
         sortDescendingAriaLabel: 'Sorted Z to A',
         data: 'number',
         isPadded: true,
-        onRender: (item: IAgreement) => {
+        onRender: (item: IList) => {
           let lastPriceAdjustment = moment(item.LastPriceAdjustment).format('YYYY-MM-DD');
           return (<span>{lastPriceAdjustment}</span>);
         }
@@ -296,12 +247,13 @@ export default class AgreementDb extends React.Component<IAgreementDbProps, IAgr
         sortDescendingAriaLabel: 'Sorted Z to A',
         data: 'number',
         isPadded: true,
-        onRender: (item: IAgreement) => {
+        onRender: (item: IList) => {
           let nextPriceAdjustment = moment(item.NextPriceAdjustment).format('YYYY-MM-DD');
           return (<span>{nextPriceAdjustment}</span>);
         }
       },
-    ]
+    ];
+
     return (
       <React.Fragment>
         <div className="ms-Grid-col ms-lg12 ms-xl12">
@@ -313,15 +265,43 @@ export default class AgreementDb extends React.Component<IAgreementDbProps, IAgr
             </div>
           </div>
           {this.generateBoxes(this.props.nrofboxes)}
-
           <div className={`ms-Grid-row ${styles['separator']}`}>
             <hr className={styles["adw-separator"]} />
           </div>
+
           <DetailsList
-            items={this.state.originalitems}
+            items={this.state.listItems}
             columns={columns}
           />
         </div>
+      </React.Fragment>
+    );
+  }
+
+  private generateBoxes(nrofboxes: string): JSX.Element {
+    const boxes: JSX.Element[] = [];
+    const size: number = 12 / Number(nrofboxes);
+    const clsName: string = "ms-Grid-col ms-lg" + size + " ms-xl" + size;
+
+    for (let i = 1; i <= Number(nrofboxes); i++) {
+      boxes.push(
+        <div className={"ms-Grid-col ms-lg" + size + " ms-xl" + size + " " + styles["adw-link-box-container"]}>
+          <div className={styles["link-box"]}>
+            <a href={this.props["linkurl" + i]} id={this.props["linkurl" + i]}>
+              <h4 className={styles["link-box-header-container"]}>
+                <small className={styles["link-box-header-title"]}>{this.props["linktitle" + i]}</small>
+                <span className={styles["link-box-header-text"]}>{this.props["linktext" + i]}</span>
+              </h4>
+            </a>
+          </div>
+        </div>
+      );
+
+    }
+
+    return (
+      <React.Fragment>
+        {boxes}
       </React.Fragment>
     );
   }

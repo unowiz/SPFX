@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "agreement-database-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/agreementDatabase/AgreementDatabaseWebPart.js",
+          "manifest": "./src/webparts/agreementDatabase/AgreementDatabaseWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AgreementDatabaseWebPartStrings": "lib/webparts/agreementDatabase/loc/{locale}.js"
+  }
+}

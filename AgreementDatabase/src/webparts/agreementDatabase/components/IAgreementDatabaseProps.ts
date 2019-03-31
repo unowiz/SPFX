@@ -1,9 +1,10 @@
 import ContentDataProvider from "../../../dataprovider/ContentDataProvider";
 
-export interface IAgreementDbProps {
+export interface IAgreementDatabaseProps {
+  description: string;
   provider: ContentDataProvider;
-  nrofboxes: string;
   headertext: string;
+  nrofboxes: string;
   linktitle1: string;
   linktext1: string;
   linkurl1: string;

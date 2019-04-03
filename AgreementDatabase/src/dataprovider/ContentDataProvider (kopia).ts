@@ -6,8 +6,7 @@ export interface IViews {
 }
 
 export interface IList {
-  Title: any;
-  Id: number;
+  AgreementName: string;
   CustomerAgreementNr: number;
   AgreementType: string;
   ContactPerson: string;
@@ -29,17 +28,19 @@ sp.web.currentUser.get().then(result => {
 export default class ContentDataProvider {
   constructor() {}
 
-
-  private select = "Title,Id,CustomerAgreementNr,ContactPerson,DeliveryType,AgreementStartDate,AgreementType/Title,AgreementEndDate,AgreementEnded,Customer,LastPriceAdjustment,NexPriceAdjustment,SalesManager/FirstName, SalesManager/LastName,TaxCatchAll/ID,TaxCatchAll/Term";
+  // Get current user
+  
 
   // Get ended agreement not closed
   public async getEnded(): Promise<IList[]> {
     let today = new Date();
     let Agreements: IList[] = [];
 
+    let select: string =
+      "Title,CustomerAgreementNr,ContactPerson,DeliveryType,AgreementStartDate,AgreementType/Title,AgreementEndDate,AgreementEnded,Customer,LastPriceAdjustment,NexPriceAdjustment,SalesManager/FirstName, SalesManager/LastName,TaxCatchAll/ID,TaxCatchAll/Term";
     const items = await sp.web.lists
       .getByTitle("AgreementDatabase")
-      .items.select(this.select)
+      .items.select(select)
       .filter(
         `(AgreementEnded eq true) and (AgreementEndDate le '${today.toISOString()}')`
       )
@@ -48,8 +49,7 @@ export default class ContentDataProvider {
 
     items.forEach(item => {
       Agreements.push({
-        Title: item.Title,
-        Id: item.Id,
+        AgreementName: item.Title,
         CustomerAgreementNr: item.CustomerAgreementNr,
         AgreementType: item.AgreementType.Title,
         ContactPerson: item.ContactPerson,
@@ -75,18 +75,18 @@ export default class ContentDataProvider {
     let today = new Date();
     let Agreements: IList[] = [];
 
-
+    let select: string =
+      "Title,CustomerAgreementNr,ContactPerson,DeliveryType,AgreementStartDate,AgreementType/Title,AgreementEndDate,AgreementEnded,Customer,LastPriceAdjustment,NexPriceAdjustment,SalesManager/FirstName, SalesManager/LastName,TaxCatchAll/ID,TaxCatchAll/Term";
     const items = await sp.web.lists
       .getByTitle("AgreementDatabase")
-      .items.select(this.select)
+      .items.select(select)
       .filter(`LastPriceAdjustment le '${today.toISOString()}'`)
       .expand("SalesManager,TaxCatchAll,AgreementType")
       .get();
 
     items.forEach(item => {
       Agreements.push({
-        Title: item.Title,
-        Id: item.id,
+        AgreementName: item.Title,
         CustomerAgreementNr: item.CustomerAgreementNr,
         AgreementType: item.AgreementType.Title,
         ContactPerson: item.ContactPerson,
@@ -108,40 +108,34 @@ export default class ContentDataProvider {
   }
 
  // Get Sales manager's agreements
- /* public async getMyAgreement(): Promise<IList[]> {
+ public async getMyAgreement(): Promise<IList[]> {
   let Agreements: IList[] = [];
-  let salesManagerName = [];
+  let salesManagerName = '';
+
+  let select: string =
+    "Title,CustomerAgreementNr,ContactPerson,DeliveryType,AgreementStartDate,AgreementType/Title,AgreementEndDate,AgreementEnded,Customer,LastPriceAdjustment,NexPriceAdjustment,SalesManager/FirstName, SalesManager/LastName,TaxCatchAll/ID,TaxCatchAll/Term";
 
     const managerName = await sp.web.lists
     .getByTitle("AgreementDatabase")
-    .items.select(this.select)
+    .items.select("SalesManager/FirstName, SalesManager/LastName")
     .expand("SalesManager")
     .get();
 
     managerName.forEach(item => {
-      salesManagerName.push (item.SalesManager.FirstName + " " + item.SalesManager.LastName);
+      salesManagerName = item.SalesManager.FirstName + " " + item.SalesManager.LastName
     });
-
-    let agreementOwner = '';
-    salesManagerName.forEach(item => {
-      if(item == currentUser) {
-        agreementOwner = item;
-      }
-    });
-
 
   const items = await sp.web.lists
     .getByTitle("AgreementDatabase")
-    .items.select(this.select)
-    .filter(`${agreementOwner}' eq '${currentUser}'`)
+    .items.select(select)
+    .filter(`${salesManagerName}' eq '${currentUser}'`)
     .expand("SalesManager,TaxCatchAll,AgreementType")
     .get();
 
-
+  
   items.forEach(item => {
     Agreements.push({
-      Title: item.Title,
-      Id: item.id,
+      AgreementName: item.Title,
       CustomerAgreementNr: item.CustomerAgreementNr,
       AgreementType: item.AgreementType.Title,
       ContactPerson: item.ContactPerson,
@@ -151,7 +145,7 @@ export default class ContentDataProvider {
       AgreementEnded: item.AgreementEnded,
       LastPriceAdjustment: item.LastPriceAdjustment,
       NextPriceAdjustment: item.NexPriceAdjustment,
-       Customer: item.TaxCatchAll[0].Term,
+      Customer: item.TaxCatchAll[0].Term,
       SalesManager:
         item.SalesManager.FirstName + " " + item.SalesManager.LastName
     });
@@ -160,24 +154,23 @@ export default class ContentDataProvider {
   return new Promise<IList[]>(async resolve => {
     resolve(Agreements);
   });
-} */
-
+}
+  
 
   public async getContent(): Promise<IList[]> {
     let Agreements: IList[] = [];
+    let select: string =
+      "Title,CustomerAgreementNr,ContactPerson,DeliveryType,AgreementStartDate,AgreementType/Title,AgreementEndDate,AgreementEnded,Customer,LastPriceAdjustment,NexPriceAdjustment,SalesManager/FirstName, SalesManager/LastName,TaxCatchAll/ID,TaxCatchAll/Term";
 
     const items = await sp.web.lists
       .getByTitle("AgreementDatabase")
-      .items.select(this.select)
+      .items.select(select)
       .expand("SalesManager,TaxCatchAll,AgreementType")
       .get();
 
-
-
     items.forEach(item => {
       Agreements.push({
-        Title: item.Title,
-        Id: item.id,
+        AgreementName: item.Title,
         CustomerAgreementNr: item.CustomerAgreementNr,
         AgreementType: item.AgreementType.Title,
         ContactPerson: item.ContactPerson,

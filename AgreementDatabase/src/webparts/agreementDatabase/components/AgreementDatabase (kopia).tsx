@@ -36,18 +36,15 @@ export default class AgreementDatabase extends React.Component<IAgreementDatabas
     });
   }
 
+
   private _viewFields: IViewField[] = [
     {
-      name: "Title",
+      name: "AgreementName",
       displayName: "Agreement Name",
-      maxWidth: 100,
-      minWidth: 100,
+      maxWidth: 25,
+      minWidth: 25,
       sorting: true,
-      isResizable: true,
-      render: (item: IList) => {
-        return (<a href={`https://hernancompany.sharepoint.com/sites/Demo2/Lists/AgreementDatabase/DispForm.aspx?ID=${item.Id}`}>{item.Title}</a>);
-      }
-
+      isResizable: true
     },
     {
       name: "AgreementType",
@@ -136,7 +133,7 @@ export default class AgreementDatabase extends React.Component<IAgreementDatabas
   ];
 
   public render(): React.ReactElement<IAgreementDatabaseProps> {
-
+    console.log(this.state.filteredListItems);
     return (
       <React.Fragment>
         <div className="ms-Grid-col ms-lg12 ms-xl12">
@@ -147,9 +144,7 @@ export default class AgreementDatabase extends React.Component<IAgreementDatabas
               </div>
             </div>
           </div>
-          <div className={styles.boxContainer}>
-            {this.generateBoxes(this.props.nrofboxes)}
-          </div>
+          {this.generateBoxes(this.props.nrofboxes)}
           <div className={`ms-Grid-row ${styles['separator']}`}>
             <hr className={styles["adw-separator"]} />
           </div>
@@ -197,16 +192,16 @@ export default class AgreementDatabase extends React.Component<IAgreementDatabas
       case 'Last Price Adjustment':
         this.getPassed();
         break;
-      /* case 'My Agreements':
+        case 'My Agreements':
         this.getMyAgreement();
-        break; */
+        break;
       default:
         break;
     }
   }
 
   private _renderList(): any {
-
+   
     if (this.state.filter) {
       return (<ListView
         items={this.state.filteredListItems}
@@ -220,19 +215,17 @@ export default class AgreementDatabase extends React.Component<IAgreementDatabas
       />)
     }
   }
-  /* private getMyAgreement(): void {
+  private getMyAgreement(): void {
     this.props.provider.getMyAgreement().then((originalitems: IList[]) => {
       this.setState({
         filteredListItems: originalitems,
         filter: true
       });
     });
-  } */
+  }
 
   private getEnded(): void {
-    console.log('getEnded');
     this.props.provider.getEnded().then((originalitems: IList[]) => {
-
       this.setState({
         filteredListItems: originalitems,
         filter: true
@@ -241,7 +234,6 @@ export default class AgreementDatabase extends React.Component<IAgreementDatabas
   }
 
   private getPassed(): void {
-    console.log('getPassed');
     this.props.provider.getPassed().then((originalitems: IList[]) => {
       this.setState({
         filteredListItems: originalitems,

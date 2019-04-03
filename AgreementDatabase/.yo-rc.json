@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.7.1",
+    "libraryName": "agreement-database",
+    "libraryId": "55d72735-60b2-496d-959a-86afb417197c",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
